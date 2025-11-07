@@ -66,4 +66,48 @@ Dates: ['2023-01-01']
 PAN Numbers: ['BBRPL4574H']
 Entities: [('IP', 'ORG'), ('192.168.789.102', 'CARDINAL'), ('2023-01-01', 'DATE'), ('PAN', 'ORG')]
 
+
+ Code Explanation (Line-by-Line)
+Code Line	Explanation
+import spacy	Imports SpaCy library for NLP processing
+import re	Imports re module used for Regular Expressions
+nlp = spacy.load("en_core_web_sm")	Loads the English language model to detect named entities
+url_pattern = re.compile(...)	Regular expression to find URLs starting with http, https, or www
+ip_address_pattern = re.compile(...)	Regex to find IP addresses in the format x.x.x.x
+date_pattern = re.compile(...)	Regex to find dates in format YYYY-MM-DD
+pan_number_pattern = re.compile(...)	Regex to find Indian PAN numbers (ABCDE1234F)
+def extract_entities(text):	Function to extract entities from given text
+doc = nlp(text)	Converts raw text into SpaCy document for entity detection
+urls = re.findall(url_pattern, text)	Finds all URLs in the text
+ip_addresses = re.findall(ip_address_pattern, text)	Extracts all IP addresses
+dates = re.findall(date_pattern, text)	Extracts all dates
+pan_numbers = re.findall(pan_number_pattern, text)	Extracts all PAN numbers
+entities = [(ent.text, ent.label_) for ent in doc.ents]	Extracts named entities detected by SpaCy
+return {...}	Returns results in dictionary format
+text_data = """ ... """	Sample input text to test the program
+results = extract_entities(text_data)	Calls the function to extract all entities
+print(...)	Prints extracted URLs, IPs, dates, PAN, and SpaCy entities
+🧪 Output Explanation
+Output Element	Meaning
+URLs	All website links detected using regex
+IP Addresses	Extracted IP address from text
+Dates	Extracted valid date formats
+PAN Numbers	Extracted valid PAN Card numbers
+Entities	SpaCy detected named entities like ORG, DATE, CARDINAL, etc.
+Example Output Breakdown:
+URLs: ['https://www.Sample.com.']  
+→ URL present in the text
+
+IP Addresses: ['192.168.789.102']  
+→ Extracted as IP (even though invalid logically, regex still matches)
+
+Dates: ['2023-01-01']  
+→ Correctly identified date
+
+PAN Numbers: ['BBRPL4574H']  
+→ Detected valid PAN format
+
+Entities: [('IP', 'ORG'), ('192.168.789.102', 'CARDINAL'), ('2023-01-01', 'DATE'), ('PAN', 'ORG')]  
+→ SpaCy tagged IP as ORG, date as DATE, etc.'''
+
 '''
