@@ -38,4 +38,19 @@ Earth - LOC
 third - ORDINAL
 Sun - ORG
 
+
+Commands to Run from Scratch:
+
+# Upgrade pip (optional but recommended)
+python -m pip install --upgrade pip
+
+# Install SpaCy library
+python -m pip install spacy
+
+# Download the English language model for SpaCy
+python -m spacy download en_core_web_sm
+
+# Save the Python script (e.g., ner_spacy.py) and run it
+python ner_spacy.py'''
+
 '''
