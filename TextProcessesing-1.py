@@ -106,4 +106,50 @@ EXPLANATION: noun, singular or mass
 TOKEN: .
 =====
 TAG: .          POS: PUNCT
+EXPLANATION: punctuation mark, sentence closer
+
+
+
+
 EXPLANATION: punctuation mark, sentence closer"""
+#steps if not run
+# pip install spacy nltk
+# python -m spacy download en_core_web_sm
+
+# -----------------------------
+# 📘 Explanation of the Code
+# -----------------------------
+
+# 1. We import spaCy and load the small English model 'en_core_web_sm'.
+#    It helps in processing text and understanding grammar automatically.
+
+# 2. We define a text paragraph as input for processing.
+
+# 3. Sentence Tokenization:
+#    spaCy automatically divides the paragraph into sentences using 'doc.sents'.
+
+# 4. Word Tokenization:
+#    Each word, number, or punctuation is treated as a separate token using 'token.text'.
+
+# 5. Stopword Removal:
+#    Words like 'is', 'the', 'am', 'my', etc., are removed using 'token.is_stop'.
+
+# 6. Punctuation Removal:
+#    Punctuation marks such as '.', ',', and "'" are removed using 'token.is_punct'.
+
+# 7. Lemmatization:
+#    Each word is converted to its base dictionary form using 'token.lemma_'.
+#    Example: 'running' → 'run', 'cars' → 'car'.
+
+# 8. Stemming:
+#    spaCy doesn’t have built-in stemming, so we used NLTK’s PorterStemmer to cut word endings.
+#    Example: 'playing' → 'play', 'studies' → 'studi'.
+
+# 9. Finally, the program prints results for each NLP step 
+#    (sentences, words, filtered words, lemmatized, and stemmed forms).
+
+
+
+
+
+"""
