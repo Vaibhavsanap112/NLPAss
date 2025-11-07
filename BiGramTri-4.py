@@ -162,4 +162,10 @@ for item in unigrams:
 ('animal', 'species,', 'including')
 ('species,', 'including', 'humans.')
 
+
+# Install NLTK library
+python -m pip install nltk
+
+# Optional: Download NLTK resources if needed
+python -m nltk.downloader punkt'''
 '''
